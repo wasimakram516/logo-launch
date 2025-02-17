@@ -92,6 +92,7 @@ const ModalComponent = ({ open, handleClose, iframeSrc }) => {
           width="100%"
           height="100%"
           frameBorder="0"
+          sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
           style={{
             pointerEvents: "auto",
             touchAction: "none",

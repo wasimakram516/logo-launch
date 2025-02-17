@@ -1,0 +1,11 @@
+{
+    "headers": [
+      {
+        "source": "/(.*)",
+        "headers": [
+          { "key": "X-Frame-Options", "value": "ALLOW-FROM https://your-main-site.com" }
+        ]
+      }
+    ]
+  }
+  
