@@ -38,12 +38,9 @@ const AdminPage = () => {
 
   const loadLogos = async () => {
     const data = await fetchLogos();
-    if (!data || data.length === 0) {
-      alert("Session expired. Please log in again.");
-      localStorage.removeItem("token");
-      router.push("/login");
+    if (data || data.length > 0) {
+      setLogos(data);
     }
-    setLogos(data);
   };
 
   const handleFileChange = (e) => {
