@@ -19,7 +19,7 @@ import Image from "next/image";
 import Link from "next/link";
 import companyLogo from "@/assets/aims-logo.png";
 
-import { Coalesce } from "ambient-cbg";
+import { Shift } from "ambient-cbg";
 
 const Homepage = () => {
   const [open, setOpen] = useState(false);
@@ -70,7 +70,7 @@ const Homepage = () => {
         alignItems: "center",
       }}
     >
-      <Coalesce />
+      <Shift />
       {/* Login Button - Top Right */}
       <IconButton
         sx={{
