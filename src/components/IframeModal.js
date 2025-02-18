@@ -38,7 +38,7 @@ const ModalComponent = ({ open, handleClose, iframeSrc }) => {
         key={key} // ✅ Fixes touch issues
         sx={{
           position: "relative",
-          width: isTouchDevice ? "95vw" : isFullScreen ? "100vw" : "80%",
+          width: isTouchDevice ? "90vw" : isFullScreen ? "100vw" : "80%",
           height: isTouchDevice ? "95vh" : isFullScreen ? "100vh" : "80%",
           bgcolor: "background.paper",
           boxShadow: 24,

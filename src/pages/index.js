@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { 
-  Container, Grid, Box, Typography, IconButton, 
+  Container, Box, Typography, IconButton, 
   Table, TableBody, TableCell, TableContainer, 
-  TableHead, TableRow, Paper 
+  TableHead, TableRow, Paper, useMediaQuery
 } from "@mui/material";
 import LoginIcon from "@mui/icons-material/Login";
 import ModalComponent from "@/components/IframeModal";
@@ -13,6 +13,9 @@ const Homepage = () => {
   const [open, setOpen] = useState(false);
   const [iframeSrc, setIframeSrc] = useState("");
   const [logos, setLogos] = useState({ analytical: [], process: [] });
+
+  // ✅ Detect Mobile Screens
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   useEffect(() => {
     const fetchLogos = async () => {
@@ -46,7 +49,14 @@ const Homepage = () => {
   return (
     <Container sx={{ paddingY: 4, minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center" }}>
       {/* Login Button - Top Right */}
-      <IconButton sx={{ position: "absolute", top: 10, right: 10, bgcolor: "primary.main", color: "white", "&:hover": { bgcolor: "primary.dark" } }} href="/login">
+      <IconButton 
+        sx={{ 
+          position: "absolute", top: 10, right: 10, 
+          bgcolor: "primary.main", color: "white", 
+          "&:hover": { bgcolor: "primary.dark" } 
+        }} 
+        href="/login"
+      >
         <LoginIcon />
       </IconButton>
 
@@ -56,12 +66,22 @@ const Homepage = () => {
       </Box>
 
       {/* Table with Logos */}
-      <TableContainer component={Paper} sx={{ boxShadow: 3, borderRadius: 2, overflow: "hidden" }}>
+      <TableContainer 
+        component={Paper} 
+        sx={{ 
+          boxShadow: 3, borderRadius: 2, overflowX: "auto", 
+          width: "100%", maxWidth: isMobile ? "100%" : 800 
+        }}
+      >
         <Table>
           <TableHead sx={{ bgcolor: "primary.main" }}>
             <TableRow>
-              <TableCell align="center" sx={{ fontWeight: "bold", fontSize: "18px", color: "white" }}>Analytical</TableCell>
-              <TableCell align="center" sx={{ fontWeight: "bold", fontSize: "18px", color: "white" }}>Process</TableCell>
+              <TableCell align="center" sx={{ fontWeight: "bold", fontSize: "18px", color: "white" }}>
+                Analytical
+              </TableCell>
+              <TableCell align="center" sx={{ fontWeight: "bold", fontSize: "18px", color: "white" }}>
+                Process
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -72,27 +92,37 @@ const Homepage = () => {
                     {logos.analytical[index] ? (
                       <img
                         src={logos.analytical[index].imageUrl}
-                        width="200"
+                        width={isMobile ? "100" : "200"} 
                         alt="Analytical Logo"
-                        style={{ cursor: "pointer", transition: "0.3s", borderRadius: 8" }}
+                        style={{ 
+                          cursor: "pointer", 
+                          transition: "0.3s", 
+                          borderRadius: "8px",
+                          maxWidth: "100%",
+                        }}
                         onClick={() => handleOpen(logos.analytical[index].url)}
-                        onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
-                        onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                        onMouseOver={(e) => !isMobile && (e.target.style.transform = "scale(1.05)")}
+                        onMouseOut={(e) => !isMobile && (e.target.style.transform = "scale(1)")}
                       />
-                    ) : "—"}
+                    ) : ""}
                   </TableCell>
                   <TableCell align="center">
                     {logos.process[index] ? (
                       <img
                         src={logos.process[index].imageUrl}
-                        width="200"
+                        width={isMobile ? "100" : "200"}
                         alt="Process Logo"
-                        style={{ cursor: "pointer", transition: "0.3s", borderRadius: 8" }}
+                        style={{ 
+                          cursor: "pointer", 
+                          transition: "0.3s", 
+                          borderRadius: "8px",
+                          maxWidth: "100%",
+                        }}
                         onClick={() => handleOpen(logos.process[index].url)}
-                        onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
-                        onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                        onMouseOver={(e) => !isMobile && (e.target.style.transform = "scale(1.05)")}
+                        onMouseOut={(e) => !isMobile && (e.target.style.transform = "scale(1)")}
                       />
-                    ) : "—"}
+                    ) : ""}
                   </TableCell>
                 </TableRow>
               ))
