@@ -72,9 +72,9 @@ const Homepage = () => {
                     {logos.analytical[index] ? (
                       <img
                         src={logos.analytical[index].imageUrl}
-                        width="100"
+                        width="200"
                         alt="Analytical Logo"
-                        style={{ cursor: "pointer", transition: "0.3s", borderRadius: 8, boxShadow: "2px 2px 5px rgba(0,0,0,0.1)" }}
+                        style={{ cursor: "pointer", transition: "0.3s", borderRadius: 8" }}
                         onClick={() => handleOpen(logos.analytical[index].url)}
                         onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                         onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
@@ -85,9 +85,9 @@ const Homepage = () => {
                     {logos.process[index] ? (
                       <img
                         src={logos.process[index].imageUrl}
-                        width="100"
+                        width="200"
                         alt="Process Logo"
-                        style={{ cursor: "pointer", transition: "0.3s", borderRadius: 8, boxShadow: "2px 2px 5px rgba(0,0,0,0.1)" }}
+                        style={{ cursor: "pointer", transition: "0.3s", borderRadius: 8" }}
                         onClick={() => handleOpen(logos.process[index].url)}
                         onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
                         onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
