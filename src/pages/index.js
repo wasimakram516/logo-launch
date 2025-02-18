@@ -9,6 +9,8 @@ import ModalComponent from "@/components/IframeModal";
 import Image from "next/image";
 import companyLogo from "@/assets/aims-logo.png";
 
+import {Coalesce} from "ambient-cbg"
+
 const Homepage = () => {
   const [open, setOpen] = useState(false);
   const [iframeSrc, setIframeSrc] = useState("");
@@ -48,6 +50,7 @@ const Homepage = () => {
 
   return (
     <Container sx={{ paddingY: 4, minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center" }}>
+      <Coalesce/>
       {/* Login Button - Top Right */}
       <IconButton 
         sx={{ 
@@ -73,7 +76,7 @@ const Homepage = () => {
           width: "100%", maxWidth: isMobile ? "100%" : 800 
         }}
       >
-        <Table>
+        <Table sx={{bgcolor:"rgba(225,225,225,0.1)"}}>
           <TableHead sx={{ bgcolor: "primary.main" }}>
             <TableRow>
               <TableCell align="center" sx={{ fontWeight: "bold", fontSize: "18px", color: "white" }}>
@@ -87,7 +90,7 @@ const Homepage = () => {
           <TableBody>
             {logos.analytical.length > 0 || logos.process.length > 0 ? (
               [...Array(Math.max(logos.analytical.length, logos.process.length))].map((_, index) => (
-                <TableRow key={index} sx={{ "&:hover": { bgcolor: "#f5f5f5" } }}>
+                <TableRow key={index} sx={{ "&:hover": { bgcolor: "rgba(225,225,225,0.1)" } }}>
                   <TableCell align="center">
                     {logos.analytical[index] ? (
                       <img
