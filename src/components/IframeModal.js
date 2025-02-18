@@ -11,6 +11,13 @@ const ModalComponent = ({ open, handleClose, iframeSrc }) => {
 
   const notWorking= ["https://www.durag.com/en/index.htm", "https://www.advancedenergy.com/en-us/","https://www.watertechnologies.com/lp-veolia","https://www.freudenberg.com/"];
   
+  useEffect(()=>{
+    if (open && notWorking.includes(iframeSrc)) {
+      window.open(iframeSrc,"_blank");
+      handleClose();
+    }
+  },[open, iframeSrc, handleClose])
+
   useEffect(() => {
     setKey((prev) => prev + 1); // ✅ Re-renders when full-screen is toggled
   }, [isFullScreen]);
