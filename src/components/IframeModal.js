@@ -3,15 +3,25 @@ import { Modal, Box, useMediaQuery, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import FullscreenIcon from "@mui/icons-material/Fullscreen";
 import FullscreenExitIcon from "@mui/icons-material/FullscreenExit";
-import { HorizontalRule } from "@mui/icons-material";
 
 const ModalComponent = ({ open, handleClose, iframeSrc }) => {
   const [isFullScreen, setIsFullScreen] = useState(true);
   const [key, setKey] = useState(0); // ✅ Forces re-render
   const isTouchDevice = useMediaQuery("(max-width: 1024px)"); // ✅ Detects mobile screens
 
-  const notWorking= ["http://abc@gmail.com", "","",""];
-  
+  const notWorking = [
+    "https://www.durag.com/en/index.htm",
+    "https://example.com",
+    "https://someotherlink.com",
+  ];
+
+  useEffect(() => {
+    if (open && notWorking.includes(iframeSrc)) {
+      window.open(iframeSrc, "_blank");
+      handleClose();
+    }
+  }, [open, iframeSrc, handleClose]);
+
   useEffect(() => {
     setKey((prev) => prev + 1); // ✅ Re-renders when full-screen is toggled
   }, [isFullScreen]);
