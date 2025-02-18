@@ -10,7 +10,7 @@ const ModalComponent = ({ open, handleClose, iframeSrc }) => {
   const [key, setKey] = useState(0); // ✅ Forces re-render
   const isTouchDevice = useMediaQuery("(max-width: 1024px)"); // ✅ Detects mobile screens
 
-  const notWorking= ["http://abc@gmail.com", "","",""];
+  const notWorking= ["https://www.durag.com/en/index.htm", "https://www.advancedenergy.com/en-us/","https://www.watertechnologies.com/lp-veolia","https://www.freudenberg.com/"];
   
   useEffect(() => {
     setKey((prev) => prev + 1); // ✅ Re-renders when full-screen is toggled
