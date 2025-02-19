@@ -19,7 +19,7 @@ import Image from "next/image";
 import Link from "next/link";
 import companyLogo from "@/assets/aims-logo.png";
 
-import { Shift } from "ambient-cbg";
+
 
 const Homepage = () => {
   const [open, setOpen] = useState(false);
@@ -68,9 +68,11 @@ const Homepage = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        background: "linear-gradient(62deg, #8EC5FC, #E0C3FC)";
+        
       }}
     >
-      <Shift />
+      
       {/* Login Button - Top Right */}
       <IconButton
         sx={{
