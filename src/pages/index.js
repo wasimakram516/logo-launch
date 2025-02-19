@@ -71,7 +71,7 @@ const Homepage = () => {
         backgroundImage: "linear-gradient(to right, #ffd89b, #19547b)";
       }}
     >
-      <Shift />
+      
       {/* Login Button - Top Right */}
       <IconButton
         sx={{
