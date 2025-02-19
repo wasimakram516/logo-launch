@@ -68,7 +68,7 @@ const Homepage = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        background: "linear-gradient(62deg, #8EC5FC, #E0C3FC)";
+        backgroundImage: "linear-gradient(62deg, #8EC5FC, #E0C3FC)";
         
       }}
     >
